@@ -1,0 +1,37 @@
+Rascunho do Create na view do Projeto
+@* <input type="checkbox" asp-for="LocalPro" class="form-control" /> *@
+@* <input type="checkbox" id="CETAF_Aju" name="LocalPro" value="CETAF_Aju" />
+<label for="CETAF_Aju">CETAF_Aju</label>
+
+<input type="checkbox" id="CEFEM" name="LocalPro" value="CEFEM" />
+<label for="CEFEM">CEFEM</label>
+
+<input type="checkbox" id="CETCC" name="LocalPro" value="CETCC" />
+<label for="CETCC">CETCC</label>
+
+<input type="checkbox" id="CETAF_Est" name="LocalPro" value="CETAF_Est" />
+<label for="CETAF_Est">CETAF_Est</label>
+
+<input type="checkbox" id="Nenhum" name="LocalPro" value="Nenhum" />
+<label for="Nenhum">Nenhum</label>
+
+<input type="checkbox" id="Outro" name="LocalPro" value="Outro" />
+<label for="Outro">Outro</label> *@
+@* @foreach (var local in Enum.GetValues(typeof(LocalProjeto)))
+{
+    <input type="checkbox" id="@local" name="LocalPro" value="@((int)local)" />
+    <label for="@local">@local</label>
+} *@
+
+@* <input type="checkbox" id="CETAF_Aju" asp-for="LocalPro" name="LocalPro" value="CETAF_Aju" />
+    CETAF-Aju
+<input type="checkbox" id="CEFEM" asp-for="LocalPro" name="LocalPro" value="CEFEM" />
+    CEFEM
+<input type="checkbox" id="CETCC" asp-for="LocalPro" name="LocalPro" value="CETCC" />
+    CETCC
+<input type="checkbox" id="CETAF_Est" asp-for="LocalPro" name="LocalPro" value="CETAF_Est" />
+    CETAF-Est
+<input type="checkbox" id="Nenhum" asp-for="LocalPro" name="LocalPro" value="Nenhum" />
+    Nenhum
+<input type="checkbox" id="Outro" asp-for="LocalPro" name="LocalPro" value="Outro" />
+    Outro *@

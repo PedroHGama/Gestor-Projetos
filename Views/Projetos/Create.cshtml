@@ -1,0 +1,89 @@
+﻿@model SitemaProjetos1._3.Models.Projeto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Projeto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeProjeto" class="control-label"></label>
+                <input asp-for="NomeProjeto" class="form-control" />
+                <span asp-validation-for="NomeProjeto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusPro" class="control-label"></label>
+                <select asp-for="StatusPro" class="form-control">
+                    <option value="Aprovado">Aprovado</option>
+                    <option value="EmAndamento">Em Andamento</option>
+                    <option value="Cancelado">Cancelado</option>
+                    <option value="EmAnalise" selected>Em Análise</option>
+                </select>
+                <span asp-validation-for="StatusPro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoProjeto" class="control-label"></label>
+                <input asp-for="DescricaoProjeto" class="form-control" />
+                <span asp-validation-for="DescricaoProjeto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <input asp-for="IdUsuario" class="form-control" />
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalPro" class="control-label"></label>
+                @using SistemaProjetos1._3.Models
+                @{
+                    var locais = Enum.GetValues(typeof(SitemaProjetos1._3.Models.LocalProjeto)).Cast<SitemaProjetos1._3.Models.LocalProjeto>();
+                }
+
+                @foreach (var local in locais)
+                {
+                    <br />
+                    <input type="checkbox" id="@local" name="LocalPro" value="@((int)local)" />
+                    <label for="@local">@local</label>
+                    
+                }
+                <span asp-validation-for="LocalPro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargaHoraria" class="control-label"></label>
+                <input asp-for="CargaHoraria" class="form-control" />
+                <span asp-validation-for="CargaHoraria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorEmReais" class="control-label"></label>
+                <input asp-for="ValorEmReais" class="form-control" />
+                <span asp-validation-for="ValorEmReais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FotoMimeType" class="control-label"></label>
+                <input asp-for="FotoMimeType" class="form-control" />
+                <span asp-validation-for="FotoMimeType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Foto" class="control-label"></label>
+                <input type="file" asp-for="Foto" class="form-control" />
+                <span asp-validation-for="Foto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-outline-info" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

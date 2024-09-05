@@ -1,0 +1,92 @@
+﻿@model IEnumerable<SitemaProjetos1._3.Models.Projeto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Página principal - Projetos</h1>
+
+<p>
+    <a asp-action="Create">Criar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome do Projeto
+                @* @Html.DisplayNameFor(model => model.NomeProjeto) *@
+            </th>
+            <th>
+                Status
+                @* @Html.DisplayNameFor(model => model.StatusPro) *@
+            </th>
+            <th>
+                Descrição
+                @* @Html.DisplayNameFor(model => model.DescricaoProjeto) *@
+            </th>
+            <th>
+                Usuário responsável
+                @* @Html.DisplayNameFor(model => model.IdUsuario) *@
+            </th>
+            <th>
+                Local
+                @* @Html.DisplayNameFor(model => model.LocalPro) *@
+            </th>
+            <th>
+                Carga Horária
+                @* @Html.DisplayNameFor(model => model.CargaHoraria) *@
+            </th>
+            <th>
+                Preço total
+                @* @Html.DisplayNameFor(model => model.ValorEmReais) *@
+            </th>
+            <th>
+                FotoMimeType
+                @* @Html.DisplayNameFor(model => model.FotoMimeType) *@
+            </th>
+            <th>
+                Foto
+                @* @Html.DisplayNameFor(model => model.Foto) *@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeProjeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusPro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoProjeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalPro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CargaHoraria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorEmReais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FotoMimeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdProjeto">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdProjeto">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdProjeto">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
